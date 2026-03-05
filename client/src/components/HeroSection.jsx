@@ -1,6 +1,6 @@
-import { ArrowDown, MousePointerClick, Sparkles, Code, Palette, Rocket, Award, Download, Calendar, Shield, Zap, Users, TrendingUp, Briefcase, Mail } from "lucide-react";
+import { MousePointerClick, Code, Award, Download, Shield, Zap, TrendingUp, Briefcase, Mail } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 
 export const HeroSection = () => {
   const ref = useRef(null);
@@ -8,28 +8,28 @@ export const HeroSection = () => {
   const [currentCodeLine, setCurrentCodeLine] = useState(0);
   const [displayedCode, setDisplayedCode] = useState("");
 
-  const codeSnippets = [
-    "import { FullStackDeveloper } from 'sahil.dev';",
+  const codeSnippets = useMemo(() => [
+    "import { FullStackDeveloper } from 'santhosh.dev';",
     "",
     "const developer = new FullStackDeveloper({",
-    "  name: 'Sahil',",
-    "  stack: ['React', 'Next.js', 'Node.js', 'TypeScript'],",
-    "  focus: 'Building scalable web applications',",
-    "  status: 'Open to new opportunities'",
+    "  name: 'Santhosh Chintapenta',",
+    "  stack: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript'],",
+    "  focus: 'Building web applications and ML models',",
+    "  status: 'Full Stack Web Development Intern'",
     "});",
     "",
     "await developer.launchPortfolio();",
-    "// Featured: E-commerce, SaaS, Enterprise, Startup MVPs",
+    "// Featured: ML Projects, Web Apps, SIH, Hackathons",
     "",
     "developer.connect();",
-    "console.log('🚀 Let's build something exceptional together!');"
-  ];
+    "console.log('🚀 Let&apos;s build something exceptional together!');"
+  ], []);
 
   const achievements = [
-    { number: "1+", label: "Years in Production", icon: <Shield className="h-3 w-3" /> },
-    { number: "15+", label: "Projects Delivered", icon: <TrendingUp className="h-3 w-3" /> },
-    { number: "100%", label: "Client Satisfaction", icon: <Award className="h-3 w-3" /> },
-    { number: "15+", label: "Projects completed", icon: <Zap className="h-3 w-3" /> }
+    { number: "1+", label: "Years Experience", icon: <Shield className="h-3 w-3" /> },
+    { number: "4", label: "Projects Completed", icon: <TrendingUp className="h-3 w-3" /> },
+    { number: "100%", label: "Success Rate", icon: <Award className="h-3 w-3" /> },
+    { number: "150+", label: "DSA Problems", icon: <Zap className="h-3 w-3" /> }
   ];
 
   useEffect(() => {
@@ -51,11 +51,11 @@ export const HeroSection = () => {
         }
       }, 800);
     }
-  }, [displayedCode, currentCodeLine]);
+  }, [displayedCode, currentCodeLine, codeSnippets]);
 
   const handleViewResume = () => {
     // Open resume in new tab
-    window.open('/Sahil-resume.pdf', '_blank', 'noopener,noreferrer');
+    window.open('/Santhosh_resume .pdf', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -104,14 +104,14 @@ export const HeroSection = () => {
             </motion.div>
 
             <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              <span className="block text-foreground">I'm Sahil</span>
+              <span className="block text-foreground">I&apos;m Santhosh</span>
               <motion.span className="block bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent mt-2" animate={{ backgroundPosition: ['0%', '100%', '0%'] }} transition={{ duration: 8, repeat: Infinity }} style={{ backgroundSize: '200% 100%' }}>
                 Full-Stack Engineer
               </motion.span>
             </motion.h1>
 
             <motion.p className="text-lg sm:text-xl text-muted-foreground mt-6 leading-relaxed max-w-2xl" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-              I build <span className="text-primary font-semibold">high-performance web applications</span> that drive business growth. Specializing in React, Node.js, and scalable architecture for startups and enterprises.
+              Passionate about full-stack development and machine learning. I build web applications with <span className="text-primary font-semibold">React, Node.js, and cloud technologies</span>. Currently pursuing B.Tech in CSE (AI & ML) at ANITS.
             </motion.p>
 
             <motion.div className="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>

@@ -2,11 +2,9 @@ import {
   ArrowUp,
   Linkedin,
   Instagram,
-  Youtube,
   Github,
   Mail,
   Phone,
-  MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -14,22 +12,22 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/codewithkinu", label: "LinkedIn" },
-    { icon: <Instagram size={18} />, href: "https://instagram.com/dubbinut", label: "Instagram" },
-    { icon: <Youtube size={18} />, href: "https://youtube.com/@codewithkinu", label: "YouTube" },
-    { icon: <Github size={18} />, href: "https://github.com/sahilmd01", label: "GitHub" },
+    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/santhosh-ch-515548322", label: "LinkedIn" },
+    { icon: <Instagram size={18} />, href: "https://www.instagram.com/santhosh.31_", label: "Instagram" },
+    { icon: <Github size={18} />, href: "https://github.com/santhoshchintapenta", label: "GitHub" },
+    { icon: <div className="w-4 h-4 border-2 border-green-500 rounded-full flex items-center justify-center"><span className="w-1 h-1 bg-green-500 rounded-full"></span></div>, href: "https://stellar-kringle-ca0c97.netlify.app/", label: "Website" },
   ];
 
   const quickLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Work", href: "#work" },
+    { name: "My Website", href: "https://stellar-kringle-ca0c97.netlify.app/", target: "_blank" },
     { name: "Contact", href: "#contact" },
   ];
 
   const contactInfo = [
-    { icon: <Mail size={16} />, text: "codewithkinu@gmail.com", href: "mailto:codewithkinu@gmail.com.com" },
-    { icon: <Phone size={16} />, text: "+91 9315145594", href: "tel:+919315145594" },
+    { icon: <Mail size={16} />, text: "santhoshchintapenta31@gmail.com", href: "mailto:santhoshchintapenta31@gmail.com" },
+    { icon: <Phone size={16} />, text: "+91 9974483656", href: "tel:+919974483656" },
   ];
 
   const containerVariants = {
@@ -68,7 +66,7 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Branding */}
             <motion.div variants={itemVariants} className="space-y-4">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">SAHIL</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">SANTHOSH</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Digital designer & developer creating meaningful experiences.
               </p>
@@ -101,7 +99,9 @@ export const Footer = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <a 
-                      href={link.href} 
+                      href={link.href}
+                      target={link.target || "_self"}
+                      rel={link.target === "_blank" ? "noopener noreferrer" : ""}
                       className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300 text-sm text-gray-600 dark:text-gray-300"
                     >
                       {link.name}
@@ -169,7 +169,7 @@ export const Footer = () => {
             viewport={{ once: true }}
           >
             <div>
-              <p>© {currentYear} Sahil. All rights reserved.</p>
+              <p>© {currentYear} Santhosh. All rights reserved.</p>
             </div>
             
             <div className="flex items-center space-x-6">

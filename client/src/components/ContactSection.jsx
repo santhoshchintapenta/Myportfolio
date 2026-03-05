@@ -72,7 +72,7 @@ export const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formspree.io/f/xwpbojaj', {
+      const response = await fetch('https://formspree.io/f/mvzwpkre', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export const ContactSection = () => {
     } catch (error) {
       toast({
         title: "Oops! Something went wrong",
-        description: "Please try again or email me directly at codewithkinu@gmail.com",
+        description: "Please try again or email me directly at santhoshchintapenta31@gmail.com",
         variant: "destructive"
       });
     } finally {
@@ -107,7 +107,7 @@ export const ContactSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12 sm:mb-16">
           <span className="inline-block px-3 py-1 text-xs sm:text-sm font-medium rounded-full bg-primary/10 text-primary mb-3 sm:mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
             Get In Touch
@@ -133,10 +133,10 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Email</p>
                   <a
-                    href="mailto:codewithkinu@gmail.com"
+                    href="mailto:santhoshchintapenta31@gmail.com"
                     className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
                   >
-                    codewithkinu@gmail.com
+                    santhoshchintapenta31@gmail.com
                   </a>
                 </div>
               </div>
@@ -148,10 +148,10 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Phone</p>
                   <a
-                    href="tel:+919315145594"
+                    href="tel:+919974483656"
                     className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
                   >
-                    +91 9315145594
+                    +91 9974483656
                   </a>
                 </div>
               </div>
@@ -163,7 +163,7 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs sm:text-sm text-muted-foreground">Location</p>
                   <span className="text-sm sm:text-base font-medium">
-                    Bengaluru, Karnataka India
+                    Visakhapatnam, Andhra Pradesh India
                   </span>
                 </div>
               </div>
@@ -176,7 +176,7 @@ export const ContactSection = () => {
                   {
                     icon: Linkedin,
                     label: "LinkedIn",
-                    url: "https://www.linkedin.com/in/codewithkinu",
+                    url: "https://www.linkedin.com/in/santhosh-ch-515548322",
                   },
                   {
                     icon: Twitter,
@@ -186,12 +186,12 @@ export const ContactSection = () => {
                   {
                     icon: Github,
                     label: "GitHub",
-                    url: "https://github.com/Sahilmd01",
+                    url: "https://github.com/santhoshchintapenta",
                   },
                   {
                     icon: Instagram,
                     label: "Instagram",
-                    url: "https://www.instagram.com/dubbinut",
+                    url: "https://www.instagram.com/santhosh.31_/",
                   },
                 ].map((social, index) => (
                   <a

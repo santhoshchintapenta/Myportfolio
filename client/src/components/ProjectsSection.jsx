@@ -1,152 +1,85 @@
-import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight, Filter, Sparkles, Award, Zap, Play, Eye, Calendar, Users, X } from "lucide-react";
+import { ArrowRight, Github, ChevronUp, Star, Code, Sparkles, Zap, Play, Eye, X } from "lucide-react";
 import { useState, useRef } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import PropTypes from 'prop-types';
 
 const projects = [
   {
-    id: 8,
-    title: "GenAxis",
-    category: "AI SaaS ",
-    description: "AI saas webapp build with PERN stack and Intigrated Gemini . OPEN SOURCE ",
-    image: "/projects/project8.png",
-    video: "/projects/videos/genaxix-demo.mp4",
-    tags: ["PERN Stack", "Clerk Auth", "Google Gemini", "Clerk Billing", "OPEN SOURCE"],
-    demoUrl: "https://genaxis.vercel.app",
-    githubUrl: "https://github.com/Sahilmd01/genaxis",
-    featured: true,
-    accentColor: "from-emerald-500 to-teal-600",
-    status: "Live",
-    highlights: ["Image Generation", "Article writer", "Blog Writter","Resume Reviewer"]
-  },
-  {
-    id: 7,
-    title: "NauraCare",
-    category: "Healthcare SaaS",
-    description: "Hospital management platform with multi-role access, patient tracking, and billing systems.",
-    image: "/projects/project7.png",
-    video: "/projects/videos/nauracare-demo.mp4",
-    tags: ["React", "Node.js", "MongoDB", "Stripe", "JWT Auth"],
-    demoUrl: "https://nauracare.vercel.app",
-    githubUrl: "https://github.com/Sahilmd01/neuracare",
-    featured: true,
-    accentColor: "from-emerald-500 to-teal-600",
-    status: "Live",
-    highlights: ["Multi-role system", "Patient management", "Payment integration"]
-  },
-  {
     id: 1,
-    title: "Vante & Co.",
-    category: "E-commerce",
-    description: "Fashion marketplace with product recommendations and seamless checkout experience.",
+    title: "Breast Cancer Detection using Machine Learning",
+    category: "Machine Learning",
+    description: "Developed a supervised classification model using Python for early breast cancer prediction. Performed data preprocessing and model evaluation. Secured Runner-up position in Hackathon for this project.",
     image: "/projects/project1.png",
-    video: "/projects/videos/vante-demo.mp4",
-    tags: ["React", "Node.js", "Stripe", "Redis"],
-    demoUrl: "https://e-commerce-website-4w6a.vercel.app",
-    githubUrl: "https://github.com/Sahilmd01/E-commerce-website",
+    video: "/projects/videos/project1-demo.mp4",
+    tags: ["Python", "Machine Learning", "Data Preprocessing", "Supervised Learning"],
+    demoUrl: "https://cancervisionai.streamlit.app/",
+    githubUrl: "https://github.com/santhoshchintapenta/CancerVision-AI-breast-cancer-prediction-",
     featured: true,
     accentColor: "from-purple-500 to-indigo-600",
-    status: "Live",
-    highlights: ["Product catalog", "Shopping cart", "Payment processing"]
+    status: "Completed",
+    highlights: ["Supervised Classification Model", "Data Preprocessing", "Model Evaluation", "Hackathon Runner-up"]
   },
   {
     id: 2,
-    title: "Converse Pro",
-    category: "Real-time Communication",
-    description: "Chat platform with real-time messaging, media sharing, and user authentication.",
+    title: "Time Table Generator – Java Full Stack (SIH Project)",
+    category: "Full Stack Web App",
+    description: "Developed a full-stack web application to automate academic timetable scheduling. Implemented backend logic using Java and integrated MySQL database to prevent scheduling conflicts. Designed frontend interface using HTML, CSS, and JavaScript.",
     image: "/projects/project2.png",
-    video: "/projects/videos/converse-demo.mp4",
-    tags: ["Socket.IO", "MongoDB", "React", "WebRTC"],
-    demoUrl: "https://converse-pro-frontend.vercel.app",
-    githubUrl: "https://github.com/Sahilmd01/converse-pro",
+    video: "/projects/videos/project2-demo.mp4",
+    tags: ["Java", "MySQL", "HTML", "CSS", "JavaScript", "SIH Project"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/santhoshchintapenta",
     featured: true,
     accentColor: "from-blue-500 to-cyan-600",
-    status: "Live",
-    highlights: ["Real-time chat", "Media sharing", "User authentication"]
+    status: "Completed",
+    highlights: ["Automated Scheduling", "Backend Logic in Java", "MySQL Integration", "Conflict Prevention"]
   },
   {
     id: 3,
-    title: "Blogni AI",
-    category: "Artificial Intelligence",
-    description: "AI-powered content generation platform with multi-language support.",
+    title: "AI-Based Voice Assistant",
+    category: "AI Application",
+    description: "Built a voice-enabled assistant using Python and OpenAI APIs for real-time speech processing and task automation.",
     image: "/projects/project3.png",
-    video: "/projects/videos/blogni-demo.mp4",
-    tags: ["Next.js", "Gemini AI", "Clerk Auth", "Redis"],
-    demoUrl: "https://blogni.vercel.app",
-    githubUrl: "https://github.com/Sahilmd01/Blogni",
-    accentColor: "from-amber-500 to-orange-600",
-    status: "Live",
-    highlights: ["AI content generation", "Multi-language", "User accounts"]
+    video: "/projects/videos/project3-demo.mp4",
+    tags: ["Python", "OpenAI APIs", "Speech Processing", "Task Automation"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/santhoshchintapenta",
+    featured: true,
+    accentColor: "from-green-500 to-emerald-600",
+    status: "Completed",
+    highlights: ["Voice-Enabled Assistant", "Real-time Speech Processing", "OpenAI Integration", "Task Automation"]
   },
   {
     id: 4,
-    title: "Spendlix",
-    category: "FinTech",
-    description: "Financial tracking platform with expense management and budgeting features.",
+    title: "Budget Finance Tracker",
+    category: "Web Application",
+    description: "Developed a responsive expense management web application using HTML, CSS, and JavaScript with dynamic income and expense tracking.",
     image: "/projects/project4.png",
-    video: "/projects/videos/spendlix-demo.mp4",
-    tags: ["React", "Chart.js", "Node.js", "Firebase"],
-    demoUrl: "https://spendlix.vercel.app/login",
-    githubUrl: "https://github.com/Sahilmd01/Spendlix",
-    accentColor: "from-rose-500 to-pink-600",
-    status: "Live",
-    highlights: ["Expense tracking", "Data visualization", "Budget planning"]
-  },
-  {
-    id: 5,
-    title: "Eattoo",
-    category: "Food Tech",
-    description: "Food delivery platform with restaurant listings and order management.",
-    image: "/projects/project5.png",
-    video: "/projects/videos/eattoo-demo.mp4",
-    tags: ["React", "Redux", "Mapbox", "Stripe"],
-    demoUrl: "https://eattoo-food-delivery-website-frontend.onrender.com/",
-    githubUrl: "https://github.com/Sahilmd01/Eattoo-food-delivery-website",
-    accentColor: "from-violet-500 to-purple-600",
-    status: "Live",
-    highlights: ["Restaurant listings", "Order system", "Location services"]
-  },
-  {
-    id: 6,
-    title: "JobQue",
-    category: "HR Tech",
-    description: "Job matching platform with candidate tracking and application management.",
-    image: "/projects/project6.png",
-    video: "/projects/videos/jobque-demo.mp4",
-    tags: ["Next.js", "PostgreSQL", "Redis", "AI Integration"],
-    demoUrl: "#",
-    githubUrl: "#",
-    accentColor: "from-orange-500 to-red-600",
-    status: "Development",
-    highlights: ["Job matching", "Candidate tracking", "Application system"]
+    video: "/projects/videos/project4-demo.mp4",
+    tags: ["HTML", "CSS", "JavaScript", "Expense Tracking"],
+    demoUrl: "https://stellar-kringle-ca0c97.netlify.app",
+    githubUrl: "https://github.com/santhoshchintapenta/budgetfinancetracker",
+    featured: true,
+    accentColor: "from-orange-500 to-yellow-600",
+    status: "Completed",
+    highlights: ["Responsive Design", "Dynamic Tracking", "Income & Expense Management", "Web Application"]
   }
 ];
 
 const categoryColors = {
-  "Healthcare SaaS": "from-emerald-500/20 to-teal-600/20 text-emerald-600 border-emerald-500/30",
-  "E-commerce": "from-purple-500/20 to-indigo-600/20 text-purple-600 border-purple-500/30",
-  "Real-time Communication": "from-blue-500/20 to-cyan-600/20 text-blue-600 border-blue-500/30",
-  "Artificial Intelligence": "from-amber-500/20 to-orange-600/20 text-amber-600 border-amber-500/30",
-  "FinTech": "from-rose-500/20 to-pink-600/20 text-rose-600 border-rose-500/30",
-  "Food Tech": "from-violet-500/20 to-purple-600/20 text-violet-600 border-violet-500/30",
-  "HR Tech": "from-orange-500/20 to-red-600/20 text-orange-600 border-orange-500/30"
+  "Machine Learning": "from-purple-500/20 to-indigo-600/20 text-purple-600 border-purple-500/30",
+  "Full Stack Web App": "from-blue-500/20 to-cyan-600/20 text-blue-600 border-blue-500/30",
+  "AI Application": "from-green-500/20 to-emerald-600/20 text-green-600 border-green-500/30",
+  "Web Application": "from-orange-500/20 to-yellow-600/20 text-orange-600 border-orange-500/30"
 };
 
 export const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const opacityBg = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.2, 0.1]);
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
@@ -159,7 +92,6 @@ export const ProjectsSection = () => {
   const handleFilterChange = (category) => {
     setActiveFilter(category);
     setShowAll(false);
-    setIsMobileFilterOpen(false);
   };
 
   const handleVideoPlay = (project) => {
@@ -184,6 +116,10 @@ export const ProjectsSection = () => {
       ))}
     </div>
   );
+
+  ProjectHighlights.propTypes = {
+    highlights: PropTypes.arrayOf(PropTypes.string).isRequired,
+  };
 
   return (
     <section 
@@ -234,7 +170,7 @@ export const ProjectsSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            A collection of projects I've built to showcase my skills in full-stack development and modern web technologies.
+            A collection of projects I&apos;ve built to showcase my skills in full-stack development and modern web technologies.
           </motion.p>
         </motion.div>
 
@@ -493,7 +429,7 @@ export const ProjectsSection = () => {
 
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Like what you see?</h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities and interesting projects.
+              I&apos;m always open to discussing new opportunities and interesting projects.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -508,7 +444,7 @@ export const ProjectsSection = () => {
               </motion.a>
               
               <motion.a
-                href="https://github.com/sahilmd01"
+                href="https://github.com/santhoshchintapenta"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

@@ -4,12 +4,11 @@ import {
   User,
   Code,
   Briefcase,
-  MessageSquare,
   Mail,
   BookOpen,
+  Award,
   Sun,
   Moon,
-  Youtube,
   Volume2,
   VolumeX,
   Github,
@@ -24,7 +23,8 @@ const navItems = [
   { name: "About", href: "#about", icon: User },
   { name: "Skills", href: "#skills", icon: Code },
   { name: "Projects", href: "#projects", icon: Briefcase },
-  { name: "Testimonials", href: "#testimonials", icon: MessageSquare },
+  { name: "Achievements", href: "#achievements", icon: Award },
+  { name: "Certifications", href: "#certifications", icon: Award },
   { name: "Contact", href: "#contact", icon: Mail },
   { name: "Blog", href: "https://blogni.vercel.app", icon: BookOpen },
 ];
@@ -148,8 +148,9 @@ export const Navbar = () => {
         transition={{ duration: 0.3 }}
       >
         {/* Website Globe Button */}
-        <motion.a
-          href="https://avoliq.vercel.app"
+          {activeSection !== 'about' && (
+          <motion.a
+            href="https://stellar-kringle-ca0c97.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -165,10 +166,11 @@ export const Navbar = () => {
         >
           <Globe className="w-5 h-5" />
         </motion.a>
+          )}
 
         {/* GitHub Button */}
         <motion.a
-          href="https://github.com/sahilmd01" 
+          href="https://github.com/santhoshchintapenta" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -187,7 +189,7 @@ export const Navbar = () => {
 
         {/* LinkedIn Button */}
         <motion.a
-          href="https://linkedin.com/in/codewithkinu" 
+          href="https://www.linkedin.com/in/santhosh-ch-515548322" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -202,25 +204,6 @@ export const Navbar = () => {
           aria-label="LinkedIn Profile"
         >
           <Linkedin className="w-5 h-5" />
-        </motion.a>
-
-        {/* YouTube Button */}
-        <motion.a
-          href="https://www.youtube.com/@codewithkinu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-red-600 hover:bg-red-100 dark:hover:bg-red-900/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
-          )}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          title="YouTube Channel"
-          aria-label="YouTube Channel"
-        >
-          <Youtube className="w-5 h-5" />
         </motion.a>
 
         {/* Music Button */}

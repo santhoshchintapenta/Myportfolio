@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PropTypes from 'prop-types';
 
 // Import your images
 import htmlIcon from "@/assets/icons/html.png";
@@ -21,45 +22,55 @@ import githubIcon from "@/assets/icons/github.png";
 import dockerIcon from "@/assets/icons/docker.png";
 import firebaseIcon from "@/assets/icons/firebase.png";
 import vscodeIcon from "@/assets/icons/vscode.png";
-import clearkIcon from "@/assets/icons/cleark.png";
 import SQLIcon from "@/assets/icons/sql.png";
 import MySQLIcon from "@/assets/icons/mysql.png";
 
 const skills = [
-  // Frontend
-  { name: "HTML5", level: 95, category: "frontend", icon: "html" },
-  { name: "CSS3", level: 90, category: "frontend", icon: "css" },
-  { name: "SASS", level: 85, category: "frontend", icon: "sass" },
-  { name: "JavaScript", level: 90, category: "frontend", icon: "javascript" },
-  { name: "TypeScript", level: 75, category: "frontend", icon: "typescript" },
-  { name: "React", level: 90, category: "frontend", icon: "react" },
-  { name: "Next.js", level: 75, category: "frontend", icon: "nextjs" },
+  // Fullstack
+  { name: "HTML", level: 95, category: "fullstack", icon: "html" },
+  { name: "CSS", level: 90, category: "fullstack", icon: "css" },
+  { name: "JavaScript", level: 90, category: "fullstack", icon: "javascript" },
+  { name: "React", level: 85, category: "fullstack", icon: "react" },
+  { name: "Tailwind CSS", level: 85, category: "fullstack", icon: "css" },
+  { name: "Node.js", level: 80, category: "fullstack", icon: "nodejs" },
+  { name: "Express.js", level: 80, category: "fullstack", icon: "express" },
+  { name: "MongoDB", level: 80, category: "fullstack", icon: "mongodb" },
+  { name: "Java", level: 85, category: "fullstack", icon: "java" },
+  { name: "Python", level: 80, category: "fullstack", icon: "python" },
+  { name: "MySQL", level: 85, category: "fullstack", icon: "mysql" },
+  { name: "Git", level: 90, category: "fullstack", icon: "git" },
 
-  // Backend
-  { name: "Node.js", level: 90, category: "backend", icon: "nodejs" },
-  { name: "Express", level: 85, category: "backend", icon: "express" },
-  { name: "MongoDB", level: 90, category: "backend", icon: "mongodb" },
-  { name: "PostgreSQL", level: 65, category: "backend", icon: "postgresql" },
-  { name: "GraphQL", level: 60, category: "backend", icon: "graphql" },
-  { name: "Java", level: 60, category: "backend", icon: "java" },
-  { name: "Python", level: 60, category: "backend", icon: "python" },
+  // ML
+  { name: "Neural Networks & Deep Learning", level: 70, category: "ml", icon: "python" },
+  { name: "TensorFlow", level: 65, category: "ml", icon: "python" },
+  { name: "Pandas", level: 75, category: "ml", icon: "sql" },
+  { name: "NumPy", level: 75, category: "ml", icon: "javascript" },
+  { name: "Scikit-learn", level: 70, category: "ml", icon: "python" },
+
+  // DSA
+  { name: "Data Structures & Algorithms", level: 80, category: "dsa", icon: "sql" },
+  { name: "Problem Solving", level: 85, category: "dsa", icon: "javascript" },
+  { name: "Competitive Programming", level: 75, category: "dsa", icon: "python" },
+  { name: "LeetCode (150+ Problems)", level: 80, category: "dsa", icon: "git" },
+  { name: "Time Complexity Analysis", level: 85, category: "dsa", icon: "sql" },
+  { name: "Dynamic Programming", level: 75, category: "dsa", icon: "python" },
+  { name: "Graph Algorithms", level: 70, category: "dsa", icon: "javascript" },
+  { name: "Tree Data Structures", level: 80, category: "dsa", icon: "sql" },
 
   // Tools
-  { name: "Git", level: 90, category: "tools", icon: "git" },
   { name: "GitHub", level: 90, category: "tools", icon: "github" },
-  { name: "Docker", level: 70, category: "tools", icon: "docker" },
-  { name: "Firebase", level: 80, category: "tools", icon: "firebase" },
   { name: "VS Code", level: 95, category: "tools", icon: "vscode" },
-  { name: "Cleark", level: 90, category: "tools", icon: "cleark" },
-  { name: "SQL", level: 90, category: "tools", icon: "sql" },
-  { name: "MySQL", level: 90, category: "tools", icon: "mysql" },
+  { name: "Blackbox AI", level: 85, category: "tools", icon: "javascript" },
+  { name: "ChatGPT", level: 90, category: "tools", icon: "python" },
+  { name: "GitHub Copilot", level: 88, category: "tools", icon: "github" },
 ];
 
 const categories = [
   { id: "all", label: "All Skills", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
-  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-  { id: "backend", label: "Backend", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
-  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
+  { id: "fullstack", label: "Fullstack", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
+  { id: "ml", label: "ML", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
+  { id: "dsa", label: "DSA", color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
+  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-red-500 to-pink-500" },
 ];
 
 const iconImages = {
@@ -82,7 +93,6 @@ const iconImages = {
   docker: dockerIcon,
   firebase: firebaseIcon,
   vscode: vscodeIcon,
-  cleark: clearkIcon,
   sql: SQLIcon,
   mysql: MySQLIcon,
 };
@@ -101,6 +111,10 @@ const SkillBar = ({ level }) => (
     />
   </div>
 );
+
+SkillBar.propTypes = {
+  level: PropTypes.number.isRequired,
+};
 
 const InfiniteScrollSkills = ({ skills }) => {
   const duplicatedSkills = [...skills, ...skills, ...skills];
@@ -140,6 +154,10 @@ const InfiniteScrollSkills = ({ skills }) => {
   );
 };
 
+InfiniteScrollSkills.propTypes = {
+  skills: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const filteredSkills = skills.filter(skill => 
@@ -158,7 +176,7 @@ export const SkillsSection = () => {
             My Skills
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Technologies I've mastered and my proficiency levels
+            Technologies I&apos;ve mastered and my proficiency levels
           </p>
         </motion.div>
 

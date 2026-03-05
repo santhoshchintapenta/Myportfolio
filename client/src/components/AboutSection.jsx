@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Briefcase, Code, User, Download, Calendar, Sparkles, Target, Github, Linkedin, Twitter, Mail, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,30 +8,30 @@ export const AboutSection = () => {
   const [counter, setCounter] = useState(0);
 
   const achievements = [
-    { number: "15+", label: "Projects", icon: <Briefcase className="h-5 w-5" />, suffix: "" },
-    { number: "1", label: "Years Exp", icon: <Calendar className="h-5 w-5" />, suffix: "+" },
-    { number: "99", label: "Success", icon: <Target className="h-5 w-5" />, suffix: "%" },
-    { number: "10", label: "Clients", icon: <User className="h-5 w-5" />, suffix: "+" }
+    { number: "4", label: "Projects", icon: <Briefcase className="h-5 w-5" />, suffix: "" },
+    { number: "8.75", label: "CGPA", icon: <Calendar className="h-5 w-5" />, suffix: "" },
+    { number: "150+", label: "LeetCode Solved", icon: <Target className="h-5 w-5" />, suffix: "" },
+    { number: "1", label: "Hackathon", icon: <Star className="h-5 w-5" />, suffix: "" }
   ];
 
   const techStack = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
-    { category: "Backend", items: ["Node.js", "Express", "Java", "Python"] },
-    { category: "Cloud", items: ["AWS", "Docker", "Vercel", "MongoDB"] }
+    { category: "Fullstack", items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Java", "Python", "MySQL", "Git"] },
+    { category: "ML", items: ["AI & ML", "Neural Networks & Deep Learning", "TensorFlow", "Pandas", "NumPy", "Scikit-learn"] },
+    { category: "DSA", items: ["Data Structures & Algorithms", "Problem Solving", "Competitive Programming", "LeetCode (150+ Problems)", "Time Complexity Analysis", "Dynamic Programming", "Graph Algorithms", "Tree Data Structures"] }
   ];
 
   const features = ["Full-stack expertise", "Clean, maintainable code", "Performance optimization", "Agile methodology", "24/7 support", "Timely delivery"];
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: "https://www.github.com/sahilmd01" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/codewithkinu" },
+    { icon: <Github className="h-5 w-5" />, href: "https://github.com/santhoshchintapenta" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/santhosh-ch-515548322" },
     { icon: <Twitter className="h-5 w-5" />, href: "#" },
-    { icon: <Mail className="h-5 w-5" />, href: "mailto:sahilmd.dev@gmail.com" }
+    { icon: <Mail className="h-5 w-5" />, href: "mailto:santhoshchintapenta31@gmail.com" }
   ];
 
   const tabContent = {
     personal: "Passionate about creating digital solutions that make a difference. When I'm not coding, I'm exploring new technologies, contributing to open-source, and mentoring aspiring developers.",
-    professional: "With 1+ years in full-stack development, I've delivered 15+ successful projects using modern technologies. I specialize in scalable architecture and performance optimization.",
+    professional: "Full Stack Web Development Intern with experience in front-end and back-end development. Skilled in Java, Python, HTML, CSS, JavaScript, and MySQL. Completed academic projects in machine learning and web applications, including a hackathon runner-up project.",
     approach: "I believe in clean code, thorough testing, and user-centered design. My process emphasizes collaboration, agile methodologies, and continuous improvement."
   };
 
@@ -49,8 +49,8 @@ export const AboutSection = () => {
   // Programmatic download function
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/Sahil-resume.pdf'; // Must be in public folder
-    link.download = 'Sahil-resume.pdf';
+    link.href = '/Santhosh_resume .pdf'; // Must be in public folder
+    link.download = 'Santhosh_resume .pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -102,7 +102,7 @@ export const AboutSection = () => {
                   {/* Profile Image */}
                   <div className="relative flex-shrink-0">
                     <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl transition-all duration-500 group-hover:border-primary/40 group-hover:scale-105 md:group-hover:scale-110 relative">
-                      <img src="/profile-logo.png" alt="MD Sahil" className="w-full h-full object-cover" />
+                      <img src="/profilepic.jpeg" alt="Santhosh Chintapenta" className="w-full h-full object-cover" />
                       <div className="absolute -bottom-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
                         <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse" />
                       </div>
@@ -111,7 +111,7 @@ export const AboutSection = () => {
 
                   {/* Achievements */}
                   <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">MD Sahil</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">Santhosh Chintapenta</h2>
                     <p className="text-primary text-base sm:text-lg font-semibold mb-3 sm:mb-4">Full Stack Developer</p>
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
                       {achievements.map((achievement, index) => (
@@ -189,7 +189,7 @@ export const AboutSection = () => {
           <div className="space-y-6 sm:space-y-8">
             {/* Work Together */}
             <div className="bg-card/50 border border-border rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:shadow-3xl hover:border-primary/40 hover:bg-card/60">
-              <h3 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Let's Work Together</h3>
+              <h3 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Let&apos;s Work Together</h3>
               <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
                 <a href="#contact" className="flex-1 block w-full p-3 sm:p-4 bg-primary text-primary-foreground rounded-xl text-center font-semibold transition-all duration-300 hover:bg-primary/90 hover:scale-105 hover:shadow-lg group">
                   <div className="flex items-center justify-center gap-2 sm:gap-3"><User className="h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform duration-300" />Start a Project</div>

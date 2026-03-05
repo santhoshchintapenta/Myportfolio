@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useTheme } from "next-themes";
+import PropTypes from 'prop-types';
 
 const WelcomeScreen = ({ onWelcomeComplete }) => {
   const [phase, setPhase] = useState(0);
@@ -28,11 +29,11 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
   };
 
   const currentColors = colors[theme] || colors.dark;
-  const portfolioUrl = "www.devlyhub.in";
+  const portfolioUrl = "Santhosh Chintapenta's Portfolio";
   const welcomeMessages = [
-    "Crafting digital experiences",
-    "Software Engineer",
-    "Full-stack development"
+    "Full-Stack Engineer",
+    "ML & AI Enthusiast",
+    "Problem Solver"
   ];
 
   useEffect(() => {
@@ -275,6 +276,10 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
       </motion.div>
     </div>
   );
+};
+
+WelcomeScreen.propTypes = {
+  onWelcomeComplete: PropTypes.func.isRequired,
 };
 
 export default WelcomeScreen;
