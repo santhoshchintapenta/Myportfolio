@@ -26,7 +26,7 @@ export const HeroSection = () => {
   ], []);
 
   const achievements = [
-    { number: "1+", label: "Years Experience", icon: <Shield className="h-3 w-3" /> },
+    { number: "1", label: "Internship Experience", icon: <Shield className="h-3 w-3" /> },
     { number: "4", label: "Projects Completed", icon: <TrendingUp className="h-3 w-3" /> },
     { number: "100%", label: "Success Rate", icon: <Award className="h-3 w-3" /> },
     { number: "150+", label: "DSA Problems", icon: <Zap className="h-3 w-3" /> }
