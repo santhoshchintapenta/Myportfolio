@@ -3,6 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer
+      id="collaborate"
       style={{
         background: '#f4c400',
         position: 'relative',
@@ -48,9 +49,9 @@ export default function Footer() {
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
         {/* Character Image */}
-        <div style={{ height: '350px', marginBottom: '30px' }}>
+        <div style={{ height: '550px', marginBottom: '30px' }}>
           <img
-            src="/animated_nobg.png"
+            src="/chatgpt_nobg_2.png"
             alt="Character"
             style={{ height: '100%', objectFit: 'contain' }}
             onError={(e) => {
@@ -74,6 +75,7 @@ export default function Footer() {
             boxShadow: '0 4px 14px rgba(37,99,235,0.4)',
             transition: 'transform 0.2s'
           }}
+            onClick={() => window.open('https://www.instagram.com/', '_blank')}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
           >
@@ -91,6 +93,7 @@ export default function Footer() {
             boxShadow: '0 4px 14px rgba(0,0,0,0.1)',
             transition: 'transform 0.2s'
           }}
+            onClick={() => window.location.href = 'mailto:santhoshchintapenta31@gmail.com'}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
           >

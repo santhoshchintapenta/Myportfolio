@@ -8,9 +8,10 @@ import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
-import Service from './components/Service';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollIndicator from './components/ScrollIndicator';
 
 import './index.css';
 
@@ -41,10 +42,11 @@ function App() {
         <Hero />
         <Welcome />
         <Projects />
-        <Service />
+        <Skills />
         <Contact />
       </main>
       <Footer />
+      <ScrollIndicator />
     </div>
   );
 }

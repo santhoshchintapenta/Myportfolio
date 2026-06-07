@@ -1,12 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Send, X } from 'lucide-react';
 
-const NAV_LINKS = ['HOME', 'ABOUT', 'PORTFOLIO', 'SERVICE', 'CONTACT'];
+const NAV_LINKS = ['HOME', 'ABOUT', 'PORTFOLIO', 'SKILLS', 'CONTACT', 'COLLABORATE'];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({ name: '', role: '', message: '' });
+
+  const [isWhite, setIsWhite] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const contactEl = document.getElementById('contact');
+      const collaborateEl = document.getElementById('collaborate');
+      
+      let shouldBeWhite = false;
+      
+      if (contactEl) {
+        const rect = contactEl.getBoundingClientRect();
+        if (rect.top <= 56) shouldBeWhite = true;
+      }
+      
+      if (collaborateEl) {
+        const footerRect = collaborateEl.getBoundingClientRect();
+        if (footerRect.top <= 56) shouldBeWhite = false;
+      }
+      
+      setIsWhite(shouldBeWhite);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollTo = (id) => {
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
@@ -31,7 +57,7 @@ export default function Navbar() {
       >
         {/* Left: santhosh.ch logo */}
         <button onClick={() => scrollTo('home')} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 0 }}>
-          <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.15rem', color: '#111', letterSpacing: '-0.02em' }}>
+          <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.15rem', color: isWhite ? '#fff' : '#111', letterSpacing: '-0.02em', transition: 'color 0.3s' }}>
             Santhosh
           </span>
           <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.15rem', color: '#f4c400', letterSpacing: '-0.02em' }}>
@@ -45,28 +71,32 @@ export default function Navbar() {
             <button
               key={link}
               onClick={() => scrollTo(link)}
+              className="group relative"
               style={{
                 fontFamily: "'Outfit',sans-serif",
                 fontWeight: 700,
                 fontSize: '0.7rem',
                 letterSpacing: '0.12em',
-                color: '#111',
+                color: isWhite ? '#fff' : '#111',
                 cursor: 'pointer',
-                transition: 'opacity 0.2s',
+                transition: 'color 0.3s',
                 background: 'none',
                 border: 'none',
               }}
-              onMouseEnter={e => e.currentTarget.style.opacity = '0.5'}
-              onMouseLeave={e => e.currentTarget.style.opacity = '1'}
             >
               {link}
+              {/* Animated underline */}
+              <div
+                className="absolute -bottom-1 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-300 ease-out"
+                style={{ background: isWhite ? '#fff' : '#111' }}
+              />
             </button>
           ))}
         </div>
 
-        {/* Right: FEEDBACK pill */}
+        {/* Right: RESUME pill */}
         <button
-          onClick={() => setModalOpen(true)}
+          onClick={() => window.open('/Santhosh_Resume%20copy.pdf', '_blank')}
           style={{
             fontFamily: "'Outfit',sans-serif",
             fontWeight: 700,
@@ -83,7 +113,7 @@ export default function Navbar() {
           onMouseEnter={e => { e.currentTarget.style.background = '#111'; e.currentTarget.style.color = '#fff'; }}
           onMouseLeave={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = '#111'; }}
         >
-          FEEDBACK
+          RESUME
         </button>
 
         {/* Mobile hamburger */}
@@ -94,7 +124,7 @@ export default function Navbar() {
         >
           {[0, 1, 2].map(i => (
             <span key={i} style={{
-              display: 'block', width: 22, height: 2, background: '#111', borderRadius: 2,
+              display: 'block', width: 22, height: 2, background: isWhite ? '#fff' : '#111', borderRadius: 2,
               transform: menuOpen && i === 0 ? 'rotate(45deg) translateY(7px)' : menuOpen && i === 2 ? 'rotate(-45deg) translateY(-7px)' : 'none',
               opacity: menuOpen && i === 1 ? 0 : 1,
               transition: 'all 0.3s',
