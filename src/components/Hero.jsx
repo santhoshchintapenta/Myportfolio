@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ROLES = ['FULL-STACK', 'AI & ML', 'ENGINEER', 'DEVELOPER'];
 
-export default function Hero() {
+export default function Hero({ isLoading }) {
   const sectionRef = useRef(null);
   const roleRef    = useRef(null);
   const imgRef     = useRef(null);
@@ -15,6 +15,8 @@ export default function Hero() {
 
   // Entrance & Scroll Transition
   useEffect(() => {
+    if (isLoading) return;
+
     const ctx = gsap.context(() => {
       gsap.fromTo('.hero-in', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out', delay: 0.2 });
       gsap.fromTo(imgRef.current, { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.3 });
@@ -41,7 +43,7 @@ export default function Hero() {
 
     }, sectionRef);
     return () => ctx.revert();
-  }, []);
+  }, [isLoading]);
 
   // Role rolling
   useEffect(() => {

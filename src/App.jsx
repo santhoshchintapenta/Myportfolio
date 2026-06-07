@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
+import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
@@ -18,12 +19,16 @@ import './index.css';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
       smoothTouch: false,
     });
+    lenisRef.current = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
@@ -34,12 +39,24 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (lenisRef.current) {
+      if (isLoading) {
+        lenisRef.current.stop();
+      } else {
+        lenisRef.current.start();
+        window.scrollTo(0, 0);
+      }
+    }
+  }, [isLoading]);
+
   return (
     <div className="relative">
+      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
       <Navbar />
       <main>
         <Portfolio />
-        <Hero />
+        <Hero isLoading={isLoading} />
         <Welcome />
         <Projects />
         <Skills />
