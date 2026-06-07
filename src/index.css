@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(244,196,0,0.5); color: #111; }
+::-webkit-scrollbar { display: none; }
+* { -ms-overflow-style: none; scrollbar-width: none; }
+
+.font-bebas { font-family: 'Bebas Neue', sans-serif !important; }
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-left       { animation: marquee-left 20s linear infinite; }
+.marquee-right      { animation: marquee-right 20s linear infinite; }
+.marquee-left-fast  { animation: marquee-left 12s linear infinite; }
+
+/* Scanner spin */
+@keyframes scanner-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.scanner-spin { animation: scanner-spin 6s linear infinite; }
+
+/* Scroll indicator pulse */
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50%       { opacity: 1;   transform: scaleY(1); }
+}
+
+/* Fix for Hero image mask animation */
+.hero-image-mask {
+  --mask-start: 100%;
+  --mask-end: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, black var(--mask-start), transparent var(--mask-end));
+  mask-image: linear-gradient(to bottom, black var(--mask-start), transparent var(--mask-end));
+}
